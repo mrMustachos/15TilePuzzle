@@ -6,31 +6,34 @@ import styles from '../assets/sass/Example.scss';
 
 import Tile from './ExampleTile';
 
-const Example = (props) => {
-	const { dimension, size, windowSize } = props;
-	const maxWidth = windowSize.height - 25;
-	const currentWidth = size.width - 20;
-	
-	const setTileHeight = {
-		height: `${currentWidth / dimension}px`,
-		lineHeight: `${currentWidth / dimension}px`,
-		fontSize: `${(currentWidth / dimension) * .5}px`
+const Example = ({ dimension, margin, size, windowSize, user }) => {
+	console.log(size)
+	const containerWidth = windowSize.height;
+	const tileHeight = (size.width - 15) / dimension;
+
+	const setContainerWidth = {
+		maxWidth: `${containerWidth}px`,
 	};
-	const setContainerWidth = { maxWidth: `${maxWidth + 20}px` };
+
 
 	const renderTiles = () => {
 		const tester = new Array((dimension * dimension) - 1);
 		return _.map(tester, (x, i) => (
 			<Tile
-				sizing={ setTileHeight }
+				tileHeight={ tileHeight }
 				key={ i }
 				info={ i + 1 }
+				user={ user }
+				size={ size }
 			/>
 		));
 	}
 
 	return (
-		<div className={ classNames(styles.row, styles.wafflePuzzle) } style={ setContainerWidth }>
+		<div
+			className={ classNames(styles.row, styles.wafflePuzzle) }
+			style={ setContainerWidth }
+		>
 			{ renderTiles() }
 		</div>
 	);

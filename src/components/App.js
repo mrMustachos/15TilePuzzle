@@ -4,8 +4,8 @@ import styles from '../assets/sass/App.scss';
 import Puzzle from '../utils/PuzzleLogic';
 
 import Example from './Example';
-import Board from './Board';
-import ButtonBar from './ButtonBar';
+// import Board from './Board';
+// import ButtonBar from './ButtonBar';
 
 import Unsplash, { toJson } from 'unsplash-js';
 const unsplash = new Unsplash({
@@ -48,8 +48,8 @@ class App extends Component {
     }
     unsplash.photos.getRandomPhoto({ orientation: 'squarish' })
       .then(toJson).then((json) => {
-        const { user: { name, links: { html } }, urls: { small }, width, height } = json;
-        const user = { name, width, height, profile: html, imgUrl: small };
+        const { user: { name, links: { html } }, urls: { regular }, width, height } = json;
+        const user = { name, width, height, profile: html, imgUrl: regular };
         return user;
       })
       .then((user) => this.setState({ user, puzzle: Puzzle(this.state.dimension) }))
@@ -164,39 +164,28 @@ class App extends Component {
     this.setState({ won: puzzle.isGoalState() });
   }
 
-  renderGame() {
+  renderGame(windowSize) {
     const {
       loaded,
       user,
-      positioning,
-      size,
-      margin,
-      dimension,
-      puzzle,
-      num_shuffles,
-      history,
-      help,
+      // positioning,
+      // size,
+      // margin,
+      // dimension,
+      // puzzle,
+      // num_shuffles,
+      // history,
+      // help,
     } = this.state;
 
     if (loaded) {
       return (
         <Fragment>
-          <Board
-            loaded={ loaded }
-            positioning={ positioning }
-            size={ size }
-            margin={ margin }
-            dimension={ dimension }
-            help={ help }
-            imgUrl={ this.state.user.imgUrl }
-            imgSize={ (size + margin) * dimension }
-            handleClick={ this.handleClick }
-          />
-          <ButtonBar
-            shuffle={ () => this.shuffle(puzzle, num_shuffles) }
-            solve={ () => this.solve(history) }
-            disabled={ history.length === 0 ? true : false }
-            help={ () => this.setState({ help: !help }) }
+          <Example
+            dimension={ this.state.dimension }
+            margin={ this.state.margin }
+            windowSize={ windowSize }
+            user={ user }
           />
         </Fragment>
       );
@@ -223,8 +212,7 @@ class App extends Component {
         return (
           <div className={ styles.App }>
             <div className={ styles.content }>
-              <Example dimension={ this.state.dimension } windowSize={ windowSize }/>
-              { this.renderGame() }
+              { this.renderGame(windowSize) }
             </div>
             { this.state.won
               ? (<div>

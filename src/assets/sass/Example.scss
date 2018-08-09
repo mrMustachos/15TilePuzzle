@@ -3,18 +3,32 @@
 
 .wafflePuzzle {
 	margin: 0 auto;
-	left: 2.5px;
 
 	.tile {
 		@extend .col_1_of_4;
 		padding: 0;
-		width: calc(25% - 5px);
-		margin-right: 5px;
-		margin-top: 5px;
-		background-color: rgba(red, .5);
-		border: 1px solid black;
-		box-shadow: 1px 1px 1px black;
+		width: calc(25% - 3.75px);
+		margin: 5px 5px 0 0;
+		border: 1px solid #000;
+		box-shadow: 1px 1px 1px #000;
 		cursor: pointer;
 		overflow: hidden;
+		position: relative;
+
+		&:nth-child(4n) {
+			margin-right: 0;
+		}
+
+		&:nth-child(-n+4) {
+			margin-top: 0;
+		}
+
+		img {
+			position: absolute;
+		}
+
+		span {
+			@include centered;
+		}
 	}
 }
