@@ -1,0 +1,79 @@
+@import 'variables';
+@import 'waffleGrid';
+
+.btnBar {
+  @extend .col_12_of_12;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+
+  .intro {
+    font-size: large;
+  }
+}
+
+.header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+
+  .logo {
+    animation: LogoSpin infinite 20s linear;
+    height: 80px;
+  }
+
+  .title {
+    font-size: 1.5em;
+  }
+}
+
+.content {
+  @extend .grid;
+}
+
+.show {
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.puzzle {
+  position: relative;
+  max-width: 220px;
+  margin: 20px auto;
+  padding: 0;
+  @extend .col_12_of_12;
+  
+  div {
+    position: absolute;
+    border: 1px solid black;
+    text-align: center;
+    box-shadow: 1px 1px 1px black;
+    background-color: #E9E1FA;
+    cursor: pointer;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    span {
+      position: relative;
+      line-height: 55px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+}
+
+@keyframes LogoSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
