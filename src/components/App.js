@@ -3,7 +3,6 @@ import { WindowSize } from 'react-fns';
 import styles from '../assets/sass/App.scss';
 import Puzzle from '../utils/PuzzleLogic';
 
-import Example from './Example';
 import Board from './Board';
 import ButtonBar from './ButtonBar';
 
@@ -222,10 +221,7 @@ class App extends Component {
       <WindowSize render={(windowSize) => {
         return (
           <div className={ styles.App }>
-            <div className={ styles.content }>
-              <Example dimension={ this.state.dimension } windowSize={ windowSize }/>
-              { this.renderGame() }
-            </div>
+            { this.renderGame() }
             { this.state.won
               ? (<div>
                   <p className={ styles.intro }>Winner!</p>

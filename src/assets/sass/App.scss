@@ -1,8 +1,7 @@
 @import 'variables';
-@import 'waffleGrid';
+// @import 'waffleGrid';
 
 .btnBar {
-  @extend .col_12_of_12;
   margin-top: 20px;
   padding: 0;
 }
@@ -30,10 +29,6 @@
   }
 }
 
-.content {
-  @extend .grid;
-}
-
 .show {
   opacity: 1;
 }
@@ -47,7 +42,6 @@
   max-width: 220px;
   margin: 20px auto;
   padding: 0;
-  @extend .col_12_of_12;
   
   div {
     position: absolute;
