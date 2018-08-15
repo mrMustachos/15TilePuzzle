@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/sass/index.scss';
-import App from './components/App';
+import App from './components/App2';
 import registerServiceWorker from './registerServiceWorker';
 import { AppContainer } from 'react-hot-loader';
 
@@ -19,5 +19,5 @@ registerServiceWorker();
 render(App);
 
 if (module.hot) {
-  module.hot.accept('./components/App', () => render(App));
+  module.hot.accept('./components/App2', () => render(App));
 }
