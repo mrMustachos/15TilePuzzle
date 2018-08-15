@@ -6,7 +6,7 @@ import _ from 'lodash';
 import Loader from './Loader';
 import Game from './Game';
 
-import styles from '../assets/sass/App2.scss';
+import styles from '../assets/sass/App.scss';
 
 const unsplash = new Unsplash({
 	applicationId: process.env.REACT_APP_API_KEY,

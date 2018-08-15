@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import styles from '../assets/sass/App2.scss';
+import styles from '../assets/sass/App.scss';
 
 const Loader = ({ isLoading, onLoad, imgUrl, profile, name }) => (
 	<Fragment>

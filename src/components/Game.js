@@ -2,7 +2,7 @@ import React from 'react';
 import sizeMe from 'react-sizeme'
 // import cn from 'classnames';
 
-import styles from '../assets/sass/App2.scss';
+import styles from '../assets/sass/App.scss';
 
 const Game = ({ boardWidth, board }) => (
 	<div className={ styles.container } style={ boardWidth }>
