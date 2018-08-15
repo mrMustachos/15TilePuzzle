@@ -69,8 +69,6 @@ class App extends Component {
 		this.setState({ boardSize: { width, height } });
   }
 
-  // setBoardSize = ({ width, height }) => {
-		// const { margin, dimension } = this.state;
   updateTileSize = () => {
 		const { margin, dimension, boardSize: { width } } = this.state;
 		const tileSize = (width - (margin * (dimension - 1))) / dimension;
@@ -95,8 +93,6 @@ class App extends Component {
 			return tile;
 		});
 
-		// console.log(tileSizing);
-		// this.setState({ boardSize: { width, height } });
 		this.setState({ board: tileSizing });
   }
 
